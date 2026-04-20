@@ -65,9 +65,6 @@ def poll_messages():
 def home():
     return "Bot actif ✅"
 
-if __name__ == "__main__":
-    thread = threading.Thread(target=poll_messages)
-    thread.daemon = True
-    thread.start()
-    from gunicorn.app.base import BaseApplication
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+thread = threading.Thread(target=poll_messages)
+thread.daemon = True
+thread.start()
